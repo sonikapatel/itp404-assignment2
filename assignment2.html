@@ -1,0 +1,18 @@
+<script>
+
+var string =  {
+   pluralize: function(word){
+       if(word.substr(word.length-1) == "y"){
+       console.log(word.replace("y", "ies"));
+        }
+        else {
+           console.log(word + "s");
+        }
+       }
+};
+
+string.pluralize('baby');
+string.pluralize('cat');
+</script> 
+
+

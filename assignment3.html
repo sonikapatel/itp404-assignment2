@@ -1,0 +1,54 @@
+<script>
+function Book(title, quantity, price)  {
+    this.title = title;
+    this.quantity = quantity;
+    this.price= price;
+}  
+    
+Book.prototype.getSubtotal = function(){
+return this.quantity * this.price;
+}  
+
+var oojsBook = new Book('Object Oriented JavaScript', 2, 10 
+);
+
+console.log(oojsBook.title);
+console.log(oojsBook.quantity);
+console.log(oojsBook.price);
+console.log(oojsBook.getSubtotal()); 
+
+function ShoppingCart(cart){
+  this.cart = cart;
+}
+    
+
+
+var book1 = new Book('Object Oriented JavaScript', 1, 10);
+var book2 = new Book('JavaScript Web Applications',  2, 15);
+var book3 = new Book('PHP Object Oriented Solutions',  1, 20);
+var book4 = new Book('Head First Java', 5, 20);
+
+var cart = new ShoppingCart ([book1, book2]);
+    
+ShoppingCart.prototype.add = function(book){
+ this.cart.push(book);
+}
+
+cart.add(book3);
+cart.add(book4);
+
+    
+ShoppingCart.prototype.getTotal = function(){
+    var total = this.cart.reduce(function(accumulatedSubtotal, item){ 
+    accumulatedSubtotal += item.getSubtotal();
+    return accumulatedSubtotal;
+}, 0);
+    return total;
+}
+console.log(cart);  
+var subtotal = cart.getTotal();
+console.log(subtotal);
+     
+</script> 
+
+
